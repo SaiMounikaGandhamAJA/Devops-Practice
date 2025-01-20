@@ -289,3 +289,43 @@ Join two or more development histories together .
 
   * **Syntax:** git commit --amend -m "new msg"
 
+  (or) git commit --amend (this will open your default text editor (eg: vim , nano),allowing you to edit the commit)
+
+Commit Polocies : "jira :123 newly added file"
+
+git tag :
+git has the ability to tag specific points in a repository's history as being important .
+
+typically, people use this functionality to mark release points (v1.0 , v2.0 and so on)
+What if i want to access a particualr commit ?
+
+You don't have to remember the entire hexcode (Commit ID) of that commit
+
+You can use commit tags as aliases and keep the track of different commits .
+
+Commit tags provide an alias for commit id
+
+git tag -a 'annotation' -m "msg"
+
+you also view all the tags you have created
+
+git tag
+
+you can push your tags to remote repository
+
+git push --tags
+
+Cherry-pick :
+By using cherry-pick we can copy the commit id from one branch to another branch
+
+(or)
+
+git cherry-pick in git means choosing a commit from one branch and applying it to another branch .
+
+" git cherry-pick commit id "
+
+Rebase :
+git rebase is used to integrate the changes from branch to another .
+
+
+
