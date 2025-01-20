@@ -112,8 +112,8 @@ No remote backups (loss of data if the machine fails).
   * **yum install git :** To install git
   * **git init :** to initalize the git
   * **git --version :** it gives the version of the git
-  * **git config --global user.name "Bhanu" :** to change username or to give username
-  * **git config --global user.email "bhanu4bolligorla@gmail.com" :** to change email id or to give email id
+  * **git config --global user.name "Mouni" :** to change username or to give username
+  * **git config --global user.email "mounika@gmail.com" :** to change email id or to give email id
   * **git config --global core.editor "vim" :** It takes vim editor defaultly to edit / modify the data in files
   * **git config --global help.autocorrect 1 :** It is set to auto correct
   * **git config --list :** It displays the what we have config
