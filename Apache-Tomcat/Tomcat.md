@@ -50,5 +50,64 @@
  ### For logs :
 
 Apache Tomcat --> logs (Apache Tomcat and also application which is running inside Tomcat)
-
 * We can access tomcat using local host :8080 or else 127.0.0.1:8080
+
+Folder Structure in Tomcat :
+bin (Binary- Start and stop the server)
+conf (Configuration)
+lib (Library)
+logs
+temp (Temporary)
+WebApps (To Host our Application)
+Work
+How to access the application :
+url of tomcat>/Artifact-name
+
+Eg : 127.0.0.1:8080/hello-world --> After pasting the artifact in webapps
+
+mvn archetype:generate -DgroupID=com.example.aja -DartifactID=aja -DarchetypeArtifactID=maven-archetype-webapp -DinteractiveMode=false
+How we can place the artifact from the maven project of target folder to apache tomcat's webapps folder ?
+cp path where artifact > Path where web apps of tomcat >
+
+(or)
+
+cp source> destination>
+
+(or)
+
+destination > cp / source>
+
+Whenever we do any configuration changes , we need to restart the server .
+
+To change the port number of the tomcat , we need to stop the server then change the default port number to other , then you can start .
+
+To stop the server , we have many ways
+
+Close the terminal
+Ctrl + C or Ctrl + x when you are in terminal .
+To deploy the application by using GUI ?
+GUI - Graphical User Interface
+
+Access the URL of the tomcat then search for war file to deply .
+Click on choose file button once we click on choose , it will open one dailogue box .
+In that dailogue box we need to select the artifact and then click on WAR File .
+How can we access the tomcat GUI ?
+First , we need to go to the apache tomcat home folder then
+
+home folder of apache tomcat --> conf . --> modify "tomcat-user.xml" (Using text editor)
+
+go to below line
+
+user username="admin"> need to uncomment those lines by removing "<!-- & --"
+
+To view the last n no. of lines in a file .
+
+Syntax : tail -n file-name
+
+Example : tail -15 mouni.txt
+
+To view the first n no. of lines in a file .
+Syntax : head -n file-name
+
+Example : head -15 mouni.txt
+
