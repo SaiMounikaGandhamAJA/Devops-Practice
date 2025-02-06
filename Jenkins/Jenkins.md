@@ -30,8 +30,7 @@
 ## What is Jenkins ?
  A Continuous Integration Server which manages and control processes such as plan,code,build,test,deploy,operate,and monitor in DevOps Environment.
 
- ![preview](Images/jenkins.2.PNG)
-
+ 
 ## Key features of Jenkins :
 
 * Easy Installation Process 
@@ -62,15 +61,14 @@
 
  ## Jenkins Architecture : Source control management :
 
- ![preview](Images/jenkins.3.PNG)
+ 
 
  ## Why do we need plugins ?
 to have extra functionality
 
 ## plugin Management in Jenkins :
 
-![preview](Images/jenkins.4.PNG)
- 
+
  Note : In Real time , we cannot install the plugin as simple as that , reason being they might be challanges with proxy settings as well as VPN.
  
  * In order to avoid this we should configure http proxy in jenkins pluggin of advanced tab.
@@ -113,58 +111,54 @@ Note : Jenkins tool is developed on java code.
    
       jenkins.io/downloads
 
-![preview](Images/jenkins.5.PNG)
+
 
 * Under that downloading jenkins section is a list of installers for the long-term support (LTS) version of jenkins.
 
-![preview](Images/jenkins.6.PNG)
 
 * Click on windows text under download jenkins , it will start downloading
 
-![preview](Images/jenkins.7.PNG)
+
 
 * Once, you downloades the jenkins, then go for the path where you have downloaded you jenkins in your local machine.
 
-![preview](Images/jenkins.8.PNG)
+
 
 * Double click on the file , which is of type windows installer package
 
 * The setup wizard starts-click next to proceed.
 
-![preview](Images/jenkins.9.PNG)
+
 
 * Select the install destination folder and click next to continue .
 
-![preview](Images/jenkins.10.PNG)
+
 
 * Under the run service as alocal or domain user option, enter the domain username and password for the user account you want to run jenkins with click test ceredentials to verify the login data, then click next to proceed.
 
 Note : go for the first option which is run service as local system .
 
-![preview](Images/jenkins.11.PNG)
 
 * Enter the port number you want jenkins to run on. Click test port to check if the selected port is available then click next to continue .
 
-![preview](Images/jenkins.12.PNG)
+
 
 Note : default port number of Jenkins is 8080
 
 * Select the directory where java is installed on your system and click next to proceed.
 
 
-![preview](Images/jenkins.13.PNG)
 
 * Select features you want to install with jenkins and click next to continue 
 
-![preview](Images/jenkins.14.PNG)
 
 * Click install to start the installation process.
 
-![preview](Images/jenkins.15.PNG)
+
 
 * Click finish after installing.
 
-![preview](Images/jenkins.16.PNG)
+
 
 ## How to configure the Jenkins :
 
@@ -176,56 +170,51 @@ After completing the installation process , you have to unblock jenkins before y
 
      eg: http://localhost:8080
 
-![preview](Images/jenkins.17.PNG)
+
 
 * Navigate to the location on your system specified by the unblock jenkins page
 
       C:\ProgramData\Jenkins\.jenkins\secrets\initialAdminPassword
 
-![preview](Images/jenkins.18.PNG)
+
 
  Where initial admin password is a file.
 
  * Open the initial admin password file using a text editor such as notepad etc..
 
- ![preview](Images/jenkins.19.PNG)
+ 
 
  * Copy the password from the initial admin Password file
 
- ![preview](Images/jenkins.21.PNG)
-
+ 
  * Paste the password in the administartor password feild on the unblock jenkins page and click continue to proceed.
 
- ![preview](Images/jenkins.20.PNG)
+ 
 
 ## Custmize Jenkins:
 
 * Click the install suggested plugins button to have jenkins automatically install the most frequently used plugins.
 
-![preview](Images/jenkins.22.PNG)
-
+!
 * After Jenkins finishes installing the plugins, enter the required information on the create first admin user page. click save and continue to proceed.
-![preview](Images/jenkins.23.PNG)
+
 
 * On the Instance configuration page, confirm the port number you want jenkins to use and click save and finish to finish the initial customization.
-![preview](Images/jenkins.24.PNG)
 
 * Click start using jenkins
 
-![preview](Images/jenkins.25.PNG)
+
 
 * This is the dashboard you get after customizing jenkins :
 
 
-![preview](Images/jenkins.26.PNG)
+
 
 ## How to stop the server jenkins on windows ?
 
    search --> services --> jenkins --> stop
 
-![preview](Images/jenkins.27.PNG)
 
-![preview](Images/jenkins.28.PNG)
 
 ## How to restart the jenkins :
  2 ways 
