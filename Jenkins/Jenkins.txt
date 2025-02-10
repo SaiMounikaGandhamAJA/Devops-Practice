@@ -297,3 +297,96 @@ pipeline and is compatible with freestyle jobs.
 
 
 
+
+WHAT IF JENKINS USER FORGET THE PASSWORD:-
+
+                                         --->As a Jenkins administrator their is a provision to reset the users credentials.
+                                         --->Manage Jenkins-->security-->users-->go to user need to reset and click on security (left side) .
+                                         --->Their we will see password and confirm password .
+                                         --->their  you can change the password and click on save.
+					 --->Once as a administrator to change password again you need to inform to user please to user please follow below 					     steps to change password.
+
+                                        Once logged in to user GUI
+                                        Username--->security(top right corner)
+                                        their you can change the password click on save.
+-----------------------------------------------------------------------------------------------------------------------
+*Slaves ,Nodes , Agents this terminologies are same in Jenkins
+-----------------------------------------------------------------------------------------------------------------------
+--->Jenkins folders in windows OS we can all Jenkins information and configuration  details under path 
+
+     c:\ProgramData\Jenkins\.jenkins
+
+--->Under (.Jenkins) folder we can see USERS Folder (where all the Jenkins user data available.
+--->workspace:- Where all the configured job information is available.
+--->Secrets:-Where all the configured secrets are available.
+--->Plugins :-All the plugins (which are installed manually and automatically available)
+--->Nodes:-Where all the configured nodes are available .
+--->Logs:- Where we can see slaves if configured and tasks logs are available.
+
+Apart from the above folder their is Jenkins configurational file namely  (config.xml) if the changing the config.xml file first take the back or copy some where else.
+--->We can also see the Jenkins logs in Jenkins GUI( Manage Jenkins-->Status information --->system log --->All Jenkins log
+--->Once click on that you will log details 
+--->We can  see Jenkins version bottom right corner in Jenkins GUI and also 		
+	Manage Jenkins-->status information -->about Jenkins   here also we can see version.
+-------------------------------------------------------------------------------------------------------------------------
+
+Ways to Trigger Jobs in Jenkins GUI:- There are 5 types of Triggers
+
+Set up automated actions that start a build based on specific events like code changes or scheduled times.
+
+1.Trigger Build Remotely (e.g., from scripts):-
+
+---> To use this trigger, first generate the authentication token of the job. Jenkins Build Triggers
+ 
+--->Triggering Builds via URL:-
+                            --> Enable this option if you would like to trigger new builds by accessing a special predefined URL.
+                            --> You'll need to provide an authorization token in the form of a string, 
+                                so that only those who know it would be able to remotely trigger this project's builds.
+                            --> This is most useful when your Jenkins instance grants read access to this job to anonymous users.
+                            --> When that's not the case, Jenkins will reject requests sent to the trigger URL even when the correct token is specified.
+ 
+    Example:-
+Use the following URL to trigger a build remotely:-
+JENKINS-URL/job/<Job-Name>/build?token=TOKEN_NAMEOr:/buildWithParameters?token=TOKEN_NAME
+
+ 2. Build After Other Projects Are Built (Upstream and Downstream)
+                  ---> Set up a trigger so that when some other projects finish building, a new build is scheduled for this project.
+                  ---> This is convenient for running an extensive test after a build is complete.
+                  ---> We need to provide the job name (which is already configured).
+ 
+ Under Projects to Watch, We Have 4 Dependencies:- 4 options
+1. Trigger only if the build is stable.
+2. Trigger even if the build is unstable.
+3. Trigger even if the build fails.
+4. Always trigger even if the build is aborted.
+
+ 3. Build Periodically (In Schedule)
+            --->This field follows a syntax of cron (with minor differences).
+            ---> Each line consists of 5 fields, separated by TAB or whitespace.
+
+MINUTE HOUR DOM MONTH DOW
+ 
+ Cron Syntax:
+            ---> MINUTE: Minutes within the hour (0-59)
+            --->HOUR: The hour of the day (0-23)
+            --->DOM: The day of the month (1-31)
+            --->MONTH: The month (1-12)
+            ---> DOW: The day of the week (0-7) where 0 and 7 are Sunday.
+
+	         WHERE 1 is for Monday    and 7 is for Sunday
+
+ 
+To specify multiple values for one field, various operations are available. For reference or practice, visit:
+[crontab.guru](https://crontab.guru/)
+ 
+4. GitHub Hook Trigger for GITSCM Polling
+      --->When Jenkins receives a GitHub push hook, the GitHub plugin checks to see whether the hook came from a
+           GitHub repository that matches the Git repository     defined in the SCM/Git section of this job.
+      ---> This option is available only when the GitHub plugin is installed.
+
+5. Poll SCM  
+      --->Configure Jenkins to poll changes in SCM
+      --->Apart from the above 5 triggers options or ways we can also trigger jobs manually.
+ 
+
+
