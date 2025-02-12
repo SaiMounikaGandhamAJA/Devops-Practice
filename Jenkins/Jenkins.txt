@@ -504,6 +504,111 @@ Replay can also be used as a troubleshooting mechanism.
           --> By default, pipeline execution follows a serial mode (one step at a time).
           --> A stage only starts after the previous one passes.
 
+How to Change the Default Port Number of Jenkins ?
+
+                                 --> Go to the path: `C:/Program Files/Jenkins`
+                                 --> Here in this folder, we can find the `jenkins.xml` file.
+                                 --> Search for `--httpPort=8080` in `jenkins.xml` file, where `8080` is the default port number.
+                                 --> To change this default port number, replace `8080` with the desired port number.
+                                 --> Save the file.
+                                 --> Once  modified the Jenkins.xmlfile restart the Jenkins server.
+--------------------------------------------------------------------------------------------------------------------------------
+
+Note:- Before Changing any changes of Jenkins Configuration or port number better Take backup of original files foe safe side.
+================================================================================================================================
+ 
+What if Jenkins Administrator forgot the password ?
+ 
+                                  --> Go to Jenkins home directory:
+                                      C:/ProgramData/Jenkins/.jenkins`
+                                  --> In that path, open `config.xml`, search for:
+  
+<useSecurity>true</useSecurity>
+   
+                --> Replace 'true' with 'false'.
+                --> Save the file.
+                --> Now, access the Jenkins server in a browser; login details will not be required.
+                --> Go to `Manage Jenkins` → `Security`.
+                  - 'Security Realm' (When we change `config.xml` file from `true` to `false`, it will be set to `none`).
+                  - Change from `none` to 'Jenkins’ own user database`.
+                --> Change Authorization` settings:
+                  - When true is set to `false`, the authorization will change to `Anyone can do anything`.
+                  - Change from `Anyone can do anything` to either `Matrix-based` or `Project-based` strategy.
+                --> Uncheck 'Anonymous' under the `Users` category.
+                --> Now, add a user and assign the `Administrator` role.
+                --> Save the settings.
+                --> Navigate to 'Manage Jenkins' → `'Users' → 'Admin', then change the admin user password.
+                --> Restart the Jenkins server.
+                **Note:- Better to take a backup of the 'config.xml' file before proceeding.
+                --> After restarting, check with the `Admin` user whether login with password and admin privileges works.
+                --> Go back to 'config.xml' and modify:
+   
+<useSecurity>false</useSecurity>
+   
+                ****Change 'false' back to 'true'.
+                --> Restart the Jenkins server.
+ 
+
+ -------------------------------------------------------------------------------------------------------------------------------------
+ Using Jenkins Environment Variables:-
+--> Jenkins pipeline exposes environment variables via the global variable `env`, which is available from anywhere within a 'Jenkinsfile'.
+   **** jenkins.io/doc/book/pipeline/Jenkinsfile/#using-environment-variables********
+ 
+Below are some of  Jenkins Environment Variables:
+1. BUILD_ID - The current build ID, identical to **BUILD_NUMBER** for builds created
+Build Variables in Jenkins
+1. BUILD_NUMBER
+2. BUILD_TAG
+3. BUILD_URL
+4. JENKINS_URL
+5. JOB_NAME
+6. NODE_NAME
+7. WORKSPACE
+ 
+  EXAMPLE:-
+
+         --> Use the **Jenkins Pipeline (Declarative Pipeline)**.
+         --> In the Jenkins URL, we can see example code or copy the code when creating a new item in Jenkins for a pipeline job.
+         --> Replace the script with copied code and save it.
+         --> Build the job.
+         -->Expected Output Should be running on 'http://localhost:8080'.
+         -->If the port number is changed from `8080` to another port, but Jenkins still shows '8080', investigate why it is retaining the default port.
+  ****How to Parameterize the Jenkins Job:-
+         -->Parameters/Variables  allow you to prompt users for inputs that will be passed into a build.
+         --> create a new job:
+         --> In the general configuration of the job, check the option **"This project is parameterized"**.
+         --> Click on the **"Add Parameter"** dropdown.
+         -->Various parameters available:
+                       - Boolean
+                       - Choice
+                       - Credentials
+                       - File
+                       - Multi-line string
+                       - Password
+                       - Run
+                       - String
+  FOR  EXAMPLE:
+         --> Click on "Choice Parameter".
+         --> Define a simple parameter that can be selected from a list during a build.
+         --> Name it 'Env' and provide multiple environment names as choices.
+         --> Add a "Description" to inform users about the selection.
+         --> Click "Save".
+         -->When triggering the job, select **"Build with Parameters"** and choose the configured options.
+         --> Click "Build".
+         -->This is how we create Parameterized Job
+  ***Another Way of Creating Jenkins User:-
+         -->Manage Jenkins > Security > Disable "Keep me signed in"
+         -->This ensures users must sign in every time they access Jenkins services.
+         -->Manage Jenkins > Security > "Allow users to sign in"**
+         --> Allows users to register and log in from the signup page.
+         -->Useful for controlling user access.
+         -->It used to create user.
+ 
+ 
+
+ 
+
+
 
  
 
