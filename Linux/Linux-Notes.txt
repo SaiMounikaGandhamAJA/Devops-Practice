@@ -1,0 +1,453 @@
+**Linux**
+
+**Date: 17-02-2015**
+
+**What is Linux?**
+Linux is an open-source operating system modeled on Unix and developed in the C language.
+
+**Features of Linux:**
+- It is reliable as it runs smoothly and does not need to be rebooted repeatedly.
+- Significantly reduces the monitor cost.
+- Linux is open source.
+- Licensing freedom to re-use and re-publish the code.
+- Can be customized.
+- New enhancements and updates come frequently.
+- More secure than other operating systems.
+
+**Task:** What will happen when we turn on a computer/laptop?
+
+**Components of Linux OS:**
+- **Init program:** The first program responsible for the initialization of the system.
+- **Boot loader:** A program that loads the operating system when the system is turned on.
+- **Software Libraries:** A set of programming tools used to develop and design software programs and applications.
+- **Package Management System:** A collection of tools for installation, deletion, configuration, and upgradation of software.
+- **Other Interfaces and Applications:** Various applications and interfaces used for different tasks performed by users.
+
+**Architecture of Linux:**
+```
+Hardware
+    ↓
+Kernel
+    ↓
+Shell
+```
+
+**Hardware:**
+- **Kernel:** It is the interface between the applications and the actual process done at the hardware level.
+- **Shell:** It is the interface that takes user commands and sends them to the kernel.
+
+**How Shell Works:**
+```
+Command to be executed or shell script → Linux Shell → Converted to library language by Shell → Sent to Linux Kernel
+```
+
+**Task:** What is GNU or GNU tool?
+
+**Linux Distributions:**
+Some of the popular Linux distributions are Ubuntu, Fedora, RedHat, Debian, CentOS, etc.
+
+**Types of Files in Linux:**
+- `-` Normal file
+- `d` Normal directory
+- `l` Symbolic link
+- `p` Pipe
+
+**Run Levels in Linux:**
+- 0 - Halt the system
+- 1 - Single-user mode
+- 2 - Multiple user mode with no network file system
+- 3 - Multiple user mode in CLI, but no GUI
+- 4 - User definable
+- 5 - Multiple user mode in GUI
+- 6 - Reboot
+
+We can use these run levels with the `init` command. Example: `init 0`
+
+**Pipe:**
+- Pipe is represented as "|" and is used to direct the output of one command to another.
+- Pipe is unidirectional, and data flows from left to right.
+
+**Example:** `cat file.txt | grep Linux`
+
+**Shell Scripting**
+
+**Date: 18-02-2025**
+
+Shell scripting is a series of shell commands arranged in a text file to be executed one after the other.
+
+- Helps to automate a sequence of tasks, creating and also saving time.
+- Can be created using any normal text editor.
+
+### Creating a Shell Script:
+
+1. To get into the shell for execution, use `sudo su` and create a text file. Add the extension `.sh` at the shell:
+ 
+   # vi script.sh
+  
+2. Enter some commands in the script to be executed:
+ 
+   echo "My first script"
+   echo $(date)
+  
+3. Change the permission of the script, give it executable permission, and may also give read and execute 
+   permission for other users:
+  
+   # chmod 755 script.sh
+  
+4. Run the script:
+   
+   # ./script.sh  (or)
+   # bash script.sh
+
+
+### How to Create a File Using Shell Script:
+
+1. Add shebang for the script:
+
+   #! /bin/bash
+ 
+2. Define the directory where the file will be created:
+   
+   DIR="/opt/"
+  
+3. Generate a file name with the current date and time:
+  
+   FILE_NAME="My-file-$(date +"%Y-%m-%d-%H-%M")"
+
+4. Create the file:
+   
+   touch "$DIR/$FILE_NAME"
+   
+5. (Optional) Write something to the file:
+  
+   echo "This file was created on $(date)" > "$DIR/$FILE_NAME"
+  
+
+### Tasks:
+
+1. Create a directory and also a file in that directory using a shell script.
+2. Create `user1`, `user2`, `user3`, `user4`, and `user5` using a shell script.
+3. Create `n` number of users using a file (where the file will have user data).
+4. Print even numbers, odd numbers, and prime numbers using a script.
+
+---
+
+### User Management in Linux:
+
+#### Key Concepts:
+
+- **Users**: Represent individuals who can access the system.
+- **Groups**: Collection of users that share common access permissions.
+- **UID (User ID)** and **GID (Group ID)**: Numeric identities for users and groups.
+
+#### Key Commands:
+
+- **Creating a user with a password:**
+   
+   adduser <username>
+ 
+   Example:
+  
+   adduser user1
+
+- **Creating a user without a password:**
+   
+   useradd -m <username>
+
+   Example:
+  
+   useradd -m user1
+
+#### Task: How to Create a Password for the New User
+
+1. Once we create a user, we can see the user information in `/etc/passwd` (where `passwd` is a file that contains user information).
+2. We can see the passwords of the users in encrypted format in `/etc/shadow` (where `shadow` is a file).
+
+**Task: What is the difference between creating a user using `adduser` and `useradd -m` commands?**
+
+**Deleting a User:**
+
+sudo deluser <username>
+
+(OR)
+
+sudo userdel -r <username>
+--------------------------------------------------------------------------------------------------------------
+
+**How to Connect to a Linux Server Using PuTTY:**
+
+PuTTY is a software package that provides a feature to connect to machines/Linux servers.
+
+To log in to a machine using PuTTY, we need a `.ppk` file (obtained while launching the instance).
+
+**Steps to connect:**
+
+1. Download the `.ppk` file.
+2. Open PuTTY.
+3. Enter the **hostname** or **IP address** of the Linux machine (public IP address).
+4. Navigate to **Connection** → **SSH** → **Auth** → **Credentials**.
+5. Upload the `.ppk` file.
+6. Click on **Open**.
+7. For the first time, click on **Accept** when prompted.
+8. Login as `ubuntu` (default user for Ubuntu servers) or the appropriate username.
+-----
+
+
+
+Date:19-02-2025
+
+**How We Can Monitor Linux Using Command:**
+
+**TOP (Table of Processes) Command:**
+The `top` command shows a dynamic, real-time view of running processes and kernel-managed tasks in Linux. It provides system information and a summary of resource utilization, including CPU and memory usage.
+
+- Running `top` without any options displays a live view of all processes running on the system.
+- The `top` command output is divided into several sections, each with specific information about system performance and processes.
+
+### **Header Information:**
+This section shows basic system stats like uptime, active users, and recent system load.
+
+- `up` - Displays the system running time since the last reboot.
+- `users` - Shows the current number of active users.
+- `load average` - Lists the average system load over the last 1, 5, and 15 minutes. Lower values indicate less CPU demand.
+
+### **Tasks:**
+This section provides a quick overview of all running processes and their states:
+- `total` - Indicates the number of processes currently running on the system.
+- `running` - Number of processes actively using CPU resources.
+- `sleeping` - Processes waiting for an event to continue (e.g., input/output).
+- `stopped` - Processes paused or waiting for a signal.
+- `zombie` - Processes that have finished execution but remain in the process table.
+
+### **CPU Usage:**
+This section shows how various processes are using the CPU.
+
+- `%us` - Time the CPU spends on user (non-kernel) processes.
+- `%sy` - Time spent on system/kernel processes.
+- `%ni` - Time spent on user processes with adjusted priority (nice values).
+- `%id` - Percentage of time the CPU is idle.
+- `%wa` - Time spent waiting for I/O operations (like disk access).
+- `%hi` - Time handling hardware interrupts.
+- `%si` - Time handling software interrupts.
+- `%st` - Time "stolen" from the virtual machine by the hypervisor (when using virtualization).
+
+### **Memory Usage (Mem):**
+This section shows how the system uses physical RAM.
+- `total` - Total physical memory available.
+- `free` - Unused RAM memory.
+- `used` - Total memory in use by the system.
+- `buff/cache` - Memory reserved for buffers and caches. This memory can be reclaimed if needed by other processes.
+
+---
+
+### **Symbolic Mode Changing Permissions:**
+- `r` - Read (4), `w` - Write (2), `x` - Execute (1)
+
+Example:
+- `744` means `rwx r-- r--` = **Owner: Read, Write, Execute | Group: Read | Others: Read**
+- `777` means `rwx rwx rwx` = **Full permissions for everyone**
+
+- `chmod u+x filename` - Add execute permission to owner
+- `chmod g-w filename` - Remove write permission from group
+- `chmod o=r filename` - Set read-only for others
+
+### **Numeric Mode Permissions:**
+- `chmod 755 filename` - Owner (7=rwx), Group (5=rx), Others (5=rx)
+- By default, when we create a new file, the value is `644` (rw-r--r--).
+
+### **Changing Ownership:**
+- `sudo chown newowner filename` - Change owner of file/directory.
+- `sudo chown <owner-name> <file/directory>`
+  - Example: `chown ubuntu file1` (where `ubuntu` is the owner of `file1`).
+
+- To change owner and group at the same time:
+  ```sh
+  chown <owner-name>:<group-name> <file/directory>
+  ```
+  - Example: `sudo chown ubuntu:ubuntu file1` (where `ubuntu` is both the owner and the group).
+
+Recusrive Permission Changes:
+
+Changes permissions recursively for all files and sub-directories.
+
+		chown -R 755 <directory name>
+
+Set default permissions for new files/directories:
+
+By default when we create nw directory, the directory permission are 755 and when we create new 
+file default permissions are 644. 
+
+
+ 
+
+**Managing Groups:**
+
+**Create a group:**  
+```bash
+groupadd groupname
+```
+
+**Add user to group:**  
+```bash
+usermod -aG groupname username
+```
+Example:  
+```bash
+usermod -aG ag1 user1  # Adding user1 to ag1 group
+```
+
+**View group memberships:**  
+```bash
+groups username
+```
+Example:  
+```bash
+groups user1  # It will show the groups user1 is part of
+```
+
+**Other ways to see groups and users:**  
+```bash
+cat /etc/passwd  # Shows user details
+cat /etc/group   # Shows group details
+```
+
+---
+
+**Modifying Users:**
+
+**How to rename a user:**  
+```bash
+usermod -l newname oldname
+```
+Example:  
+```bash
+usermod -l user user1  # Changing the username from user1 to user
+```
+
+---
+
+**Cron Jobs in Linux:**
+
+Cron jobs are scheduled tasks in Linux that are executed automatically at specified intervals using the cron daemon. These tasks are defined in a special configuration file called a **crontab** (short for **cron table**).
+
+**Structure of a Cron Job:**
+
+A cron job has the following structure in the cron file:
+```
+* * * * * command-to-execute
+| | | | |
+| | | | ----- Day of the week (0-7) (0 and 7 both are Sunday)
+| | | ------- Month (1-12)
+| | -------- Day of the month (1-31)
+| ---------- Hour (0-23)
+------------ Minute (0-59)
+```
+
+---
+
+**Common Uses for Cron Jobs:**
+
+1. **System Maintenance:**
+   - Clearing temporary files
+   - Cleaning log files
+   - Backups of data or databases
+
+2. **Monitoring:**
+   - Disk usage monitoring
+   - Service uptime checks
+   - Sending alerts
+
+3. **Automation:**
+   - Fetching updates or syncing files
+   - Running data processing scripts
+   - Sending automated emails or reports
+
+4. **Development Tasks:**
+   - Triggering automated tests
+   - Periodically restarting services during debugging
+
+---
+
+**Benefits of Using Cron Jobs:**
+
+1. **Automation:**
+   - Eliminates manual intervention for repetitive tasks
+
+2. **Consistency:**
+   - Ensures tasks are performed reliably at set intervals
+
+3. **Resource Efficiency:**
+   - Frees up human resources for more complex tasks
+
+4. **Flexibility:**
+   - Can schedule tasks with fine-grained control over timing
+
+5. **Integration:**
+   - Works seamlessly with shell scripts, Python, and other tools to perform complex workflows
+
+6. **Ease of Use:**
+   - Simple syntax in the crontab file, allowing easy scheduling of tasks
+
+7. **Cost-Effective:**
+   - No need for additional software; cron is built into most Linux distributions
+
+---
+
+**User-Specific Cron Jobs:**
+
+User-specific cron jobs are stored in the user's crontab location:
+```bash
+/var/spool/cron/crontabs/<username>
+```
+
+**Details:**
+- Each user has their own file in the directory named after their username.
+- These files should not be edited directly; instead, use the `crontab` command to modify them.
+
+**Commands:**
+```bash
+crontab -l  # View cron jobs
+crontab -e  # Edit cron jobs
+Permissions are restricted and only cron daemon can access.
+
+Global crontab file:
+ path: /etc/crontab (crontab is a file)
+ --> contains System-Wide scheduled tasks
+ --> Format includes an additional field for the user under which the command runs.
+
+Cron Directories:
+Cron jobs are stored as separate scripts in specific directories. These directories are automatically processed based on their naming conventions:
+
+/etc/cron.hourly: Jobs executed every hour.
+
+/etc/cron.daily: Jobs executed daily.
+
+/etc/cron.weekly: Jobs executed weekly.
+
+/etc/cron.monthly: Jobs executed monthly.
+
+Adding a Cron Job:
+Place your script in the appropriate directory (e.g., /etc/cron.daily for daily tasks).
+
+Ensure the script is executable:
+
+chmod +x /etc/cron.daily/myscript
+
+Cron Logs:
+Log Location: Cron job execution and errors are logged in system log files.
+
+Common Log Files:
+
+/var/log/syslog
+
+/var/log/cron.log (on some distributions)
+
+How to Check Cron Logs:
+Use the grep command to filter cron-related entries:
+
+grep CRON /var/log/syslog
+
+Alternatively, check the specific cron log file (if available):
+
+cat /var/log/cron.log
+
